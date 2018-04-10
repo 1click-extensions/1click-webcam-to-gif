@@ -1,0 +1,9 @@
+{
+	"seconds_title": {"message": "גיף במשך מספר שניות" },
+	"start_title": {"message": "התחל עכשיו" },
+	"recording": {"message": "מקליט...." },
+	"browser_action": {"message": "שמור גיף ממצלמת רשת" },
+	"ext_desc": {"message": "גיף ממצלמת רשת בלחיצת כפתור" },
+	"ext_name": {"message": "גיף ממצלמת רשת בלחיצת כפתור" }
+}
+
