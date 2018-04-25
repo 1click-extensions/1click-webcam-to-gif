@@ -24,10 +24,14 @@ function b64toBlob(b64Data, contentType, sliceSize) {
 localstream = null;
 captureButton = document.getElementById('capture');
 player = document.getElementById('vid');
+errorDiv = document.getElementById('error');
 
 document.getElementById('title').innerText = chrome.i18n.getMessage("seconds_title")
 document.getElementById('proccesing').innerText = chrome.i18n.getMessage("recording")
-
+errorDiv.innerText = chrome.i18n.getMessage("error")
+h2 = document.getElementById('h2');
+h2.innerText = chrome.i18n.getMessage("h2_title");
+captureButton.innerText = chrome.i18n.getMessage("start_now");
 if (navigator.webkitGetUserMedia!=null) {
 
     var options = { 
@@ -42,7 +46,7 @@ if (navigator.webkitGetUserMedia!=null) {
             //console.log("streaming");
         }, 
         function(e) { 
-        console.log("background error : " + e);
+          errorDiv.classList.add('visible');
         }); 
 } 
  captureButton.addEventListener('click', () => {
@@ -58,7 +62,8 @@ if (navigator.webkitGetUserMedia!=null) {
             imgBlob = b64toBlob(image.split(',')[1],'image/gif');
         url = URL.createObjectURL(imgBlob);
         chrome.downloads.download({
-          url: url 
+          url: url ,
+          filename : getfilenameByExtention('gif')
         });
         // animatedImage = document.createElement('img');
         // animatedImage.src = image;
@@ -75,3 +80,16 @@ if (navigator.webkitGetUserMedia!=null) {
     // },'image/png');
 
   });
+
+  function getfilenameByExtention(ext){
+    var now = new Date(),
+        month = now.getMonth() + 1,
+        day = now.getDate(),
+        year = now.getFullYear(),
+        seconds = now.getSeconds(),
+        minutes = now.getMinutes(),
+        hour = now.getHours(),
+        filename = chrome.runtime.getManifest().name + '--' + [day,month,year].join('-') + '--' +[hour,minutes,seconds].join('-');
+        filename = filename.replace(/(\s|\t)+/g,'-').toLocaleLowerCase() + '.' + ext;
+    return filename;
+  }

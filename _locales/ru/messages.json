@@ -1,4 +1,7 @@
 {
+  	"error": {"message": "Please connect your camera and enable camera permissions" },
+  	"start_now": {"message": "Start now" },
+  	"h2_title": {"message": "Create a gif" },
   	"seconds_title": {"message": "Gif for this number of seconds" },
   	"start_title": {"message": "Start recording now" },
 	"recording": {"message": "recording...." },

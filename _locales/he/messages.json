@@ -1,4 +1,7 @@
 {
+	"error": {"message": "אנא חבר מצלמה ואשר הרשאות" },
+	"start_now": {"message": "התחל כעת" },
+	"h2_title": {"message": "צור גיף" },
 	"seconds_title": {"message": "גיף במשך מספר שניות" },
 	"start_title": {"message": "התחל עכשיו" },
 	"recording": {"message": "מקליט...." },

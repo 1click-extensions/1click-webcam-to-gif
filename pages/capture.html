@@ -9,6 +9,15 @@
 			text-align: center;
 			padding-top: 20px;
 		}
+		#error{
+			display: none;
+			padding: 10px;
+			color: red;
+			font-size: 14px;
+		}
+		#error.visible{
+			display: block;
+		}
 		#proccesing{
 			display: none;
 		    padding: 10px;
@@ -19,17 +28,52 @@
 		#proccesing.visible{
 			display: block;
 		}
+		body{
+				background: linear-gradient(to right, #faca42, #f5a826);
+			}
+			.btn, .btn-large, .btn-small {
+				text-decoration: none;
+				color: #fff;
+				background-color: #26a69a;
+				text-align: center;
+				letter-spacing: .5px;
+				-webkit-transition: background-color .2s ease-out;
+				transition: background-color .2s ease-out;
+				cursor: pointer;
 
+				font-size: 14px;
+				outline: 0;
+				border: none;
+				border-radius: 2px;
+				display: inline-block;
+				height: 36px;
+				line-height: 36px;
+				padding: 0 16px;
+				text-transform: uppercase;
+				vertical-align: middle;
+				-webkit-tap-highlight-color: transparent;
+		}
+
+		#h2{
+			font-size: 24px;
+		}
+		#vid{
+			background: #fff;
+			padding: 10px;
+			margin-bottom: 15px;
+		}
 		</style>
     </head>
     <body>
 		<div class="main">
+				<h2 id="h2"></h2>
+				<div id="error"></div>
 			<video id="vid" height="240" width="360" muted="muted" autoplay></video><br>
 			<span id="title"></span>:  
 			<input type="text" id="seconds" /> <br>
 			<br>
 			<div id="proccesing"></div>
-			<button type="button" id="capture">Start now</button>
+			<button type="button" id="capture" class="btn">Start now</button>
 	        <script src="/lib/gifshot.js"></script>
 	        <script src="/js/webcam.js"></script>
 	    </div>
