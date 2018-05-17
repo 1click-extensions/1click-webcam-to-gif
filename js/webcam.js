@@ -21,6 +21,17 @@ function b64toBlob(b64Data, contentType, sliceSize) {
   var blob = new Blob(byteArrays, {type: contentType});
   return blob;
 }
+
+function saveBase64AsFile(base64, fileName) {
+
+  var link = document.createElement("a");
+
+  link.setAttribute("href", base64);
+  link.setAttribute("download", fileName);
+  link.click();
+}
+
+
 localstream = null;
 captureButton = document.getElementById('capture');
 player = document.getElementById('vid');
@@ -61,10 +72,7 @@ if (navigator.webkitGetUserMedia!=null) {
         var image = obj.image,
             imgBlob = b64toBlob(image.split(',')[1],'image/gif');
         url = URL.createObjectURL(imgBlob);
-        chrome.downloads.download({
-          url: url ,
-          filename : getfilenameByExtention('gif')
-        });
+        saveBase64AsFile(url ,getfilenameByExtention('gif'));
         // animatedImage = document.createElement('img');
         // animatedImage.src = image;
         // document.body.appendChild(animatedImage);
