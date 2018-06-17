@@ -29,6 +29,7 @@ function saveBase64AsFile(base64, fileName) {
   link.setAttribute("href", base64);
   link.setAttribute("download", fileName);
   link.click();
+  setTimeout(checkIfRankNeededAndAndAddRank, 2500);
 }
 
 
