@@ -65,7 +65,8 @@ if (navigator.webkitGetUserMedia!=null) {
     // Draw the video frame to the canvas.
     document.getElementById('proccesing').classList.add('visible');
     gifshot.createGIF({
-        numFrames : document.getElementById('seconds').value * 10
+        numFrames : document.getElementById('seconds').value * 10,
+        frameDuration : 5
     }, function(obj) {
         document.getElementById('proccesing').classList.remove('visible');
       if(!obj.error) {

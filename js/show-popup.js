@@ -1,3 +1,4 @@
+isInpopup = null;
 function oneClickGetPopupHtml(extension) {
   if(!extension && 'undefined' != typeof _extension){
   	extension = _extension;
@@ -30,6 +31,7 @@ function oneClickGetPopupHtml(extension) {
 .pleaseRate a:hover,
 .pleaseRate a:visited{
 	color:#000;
+	text-decoration:underline;
 }
 .please-rate-text {
     margin: 0 auto;
@@ -109,7 +111,7 @@ button.btn-popup.no-thanks {
 
 		<div class="please-rate-text">
 			To advance the open-source world, and to give us motivation, 
-			If you like 1click Webcam to Gif <br/><a target=_blank href="https://chrome.google.com/webstore/detail/ifcojoeahdoocfalfogjphlejeinnphb/reviews" >please give us 5-stars</a>
+			If you like 1Click Webcam to Gif <br/><a target=_blank href="https://chrome.google.com/webstore/detail/ifcojoeahdoocfalfogjphlejeinnphb/reviews" >please give us 5-stars</a>
 			<br/>
 			<div class="addition">
 				In addition, If you want to report a bug, or you have a recommendation, please <a href="https://github.com/1click-extensions/1click-webcam-to-gif">report a public issue</a> or  <a href="mailto:1click-webcam-to-gif@1ce.org">Contact us</a>
@@ -173,5 +175,5 @@ function fixForPopup(){
 	var pop = document.getElementsByClassName('pleaseRate')[0];
 	pop.style.position = "static";
 
-	document.body.style['min-width'] = pop.offsetWidth + 'px';
+	document.body.style['min-width'] = '520px';
 }
